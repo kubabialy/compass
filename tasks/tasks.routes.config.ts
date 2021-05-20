@@ -1,42 +1,25 @@
-import { CommonRoutesConfig } from "../common/common.routes.config";
-import express from "express";
+import { CommonRoutesConfig } from '../common/common.routes.config'
+import TasksController from './controllers/tasks.controller'
+import express from 'express'
 
 export class TasksRoutes extends CommonRoutesConfig {
-  constructor(app: express.Application) {
-    super(app, "TasksRoutes");
-  }
+    constructor(app: express.Application) {
+        super(app, 'TasksRoutes')
+    }
 
-  configureRoutes(): express.Application {
-    this.app
-      .route("/tasks")
-      .get((req: express.Request, res: express.Response) => {
-        console.log(req);
-        res.status(200).send("List of tasks");
-      })
-      .post((req: express.Request, res: express.Response) => {
-        console.log(req);
-        res.status(200).send("Created task");
-      });
+    configureRoutes(): express.Application {
+        this.app
+            .route('/tasks')
+            .get(TasksController.listTasks)
+            .post(TasksController.createTask)
 
-    this.app
-      .route("/tasks/:taskId")
-      .get((req: express.Request, res: express.Response) => {
-        console.log(req);
-        res.status(200).send("List of tasks");
-      })
-      .post((req: express.Request, res: express.Response) => {
-        console.log(req);
-        res.status(200).send("Created task");
-      })
-      .patch((req: express.Request, res: express.Response) => {
-        console.log(req);
-        res.status(200).send("Created task");
-      })
-      .delete((req: express.Request, res: express.Response) => {
-        console.log(req);
-        res.status(200).send("Created task");
-      });
+        this.app
+            .route('/tasks/:taskId')
+            .get(TasksController.getTaskById)
+            .post(TasksController.put)
+            .patch(TasksController.patch)
+            .delete(TasksController.removeTask)
 
-    return this.app;
-  }
+        return this.app
+    }
 }
