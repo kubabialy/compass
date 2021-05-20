@@ -1,0 +1,9 @@
+{
+  "name": "compass",
+  "version": "0.0.1",
+  "description": "Small nodejs server for mobile apps to come",
+  "main": "index.js",
+  "repository": "git@github.com:kubabialy/compass.git",
+  "author": "kuba.bialy.92@icloud.com <kuba.bialy.92@icloud.com>",
+  "license": "MIT",
+}
