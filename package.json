@@ -22,8 +22,8 @@
     "typescript": "^4.2.4"
   },
   "scripts": {
-      "start": "tsc && node --unhandled-rejections=strict ./dist/app.js",
-      "debug": "export DEBUG=* && npm run start",
-      "test": "echo \"Error: no tests specified yet \" && exit 1"
+    "start": "tsc && node --unhandled-rejections=strict ./dist/app.js",
+    "debug": "export DEBUG=* && npm run start",
+    "test": "echo \"Error: no tests specified yet \" && exit 1"
   }
 }
